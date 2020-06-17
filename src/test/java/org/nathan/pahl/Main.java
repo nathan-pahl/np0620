@@ -32,7 +32,7 @@ public class Main {
 	@Test
 	public void test2() {
 		System.out.println("### Test 2 ###");
-		RentalAgreement rentalAgreement = checkoutService.checkout("LADW", LocalDate.of(2020, 7, 2), 3, 50);
+		RentalAgreement rentalAgreement = checkoutService.checkout("LADW", LocalDate.of(2020, 7, 2), 3, 10);
 		rentalAgreement.print();
 		
 		assertEquals("LADW", rentalAgreement.getToolCode());
@@ -44,9 +44,9 @@ public class Main {
 		assertEquals(new BigDecimal("1.99"), rentalAgreement.getDailyRentalCharge());
 		assertEquals(1, rentalAgreement.getChargeDays());
 		assertEquals(new BigDecimal("1.99"), rentalAgreement.getPreDiscountCharge());
-		assertEquals(50, rentalAgreement.getDiscountPercent());
-		assertEquals(new BigDecimal("1.00"), rentalAgreement.getDiscountAmount());
-		assertEquals(new BigDecimal("0.99"), rentalAgreement.getFinalCharge());
+		assertEquals(10, rentalAgreement.getDiscountPercent());
+		assertEquals(new BigDecimal("0.20"), rentalAgreement.getDiscountAmount());
+		assertEquals(new BigDecimal("1.79"), rentalAgreement.getFinalCharge());
 	}
 	
 	@Test
